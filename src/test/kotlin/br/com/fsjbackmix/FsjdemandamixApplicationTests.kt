@@ -1,4 +1,4 @@
-package br.com.`fsj-backmix`
+package br.com.fsjbackmix
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

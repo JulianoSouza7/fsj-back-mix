@@ -1,4 +1,4 @@
-package br.com.`fsj-backmix`.config
+package br.com.fsjbackmix.config
 
 import io.swagger.v3.oas.models.ExternalDocumentation
 import io.swagger.v3.oas.models.OpenAPI
@@ -31,15 +31,6 @@ class SwaggerCofing  : WebMvcConfigurer {
         return GroupedOpenApi
             .builder()
             .group("0 - All")
-            .pathsToMatch("/**")
-            .build()
-    }
-
-    @Bean
-    fun venda(): GroupedOpenApi {
-        return GroupedOpenApi
-            .builder()
-            .group("1 - Compra")
             .pathsToMatch("/**")
             .build()
     }

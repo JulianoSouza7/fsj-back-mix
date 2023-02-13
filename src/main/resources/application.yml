@@ -1,1 +1,56 @@
-
+server:
+  port: "3045"
+spring:
+  application:
+    name: @project.artifactId@
+  data:
+    mongodb:
+      uri: mongodb://compras:TnGeXePQnH9cMHDK@10.135.30.4:27017/configcompras?authSource=admin&readPreference=primary&directConnection=true&ssl=false
+fsj:
+    apiversion: @project.version@
+    dev: "true"
+url:
+  api-loja: "http://192.168.100.188:8080"
+  api-produto: "http://10.135.24.5:9007"
+springdoc:
+  packages-to-scan: br.com.fsjbackmix.controller
+  api-docs:
+    enabled: true
+  show-actuator: true
+  swagger-ui:
+    doc-expansion: none
+    path: /
+    enabled: true
+  use-management-port: false
+  writer-with-default-pretty-printer: true
+eureka:
+  instance:
+    health-check-url-path: "/actuator/health"
+    hostname: "192.168.0.117"
+    instance-id: ${eureka.instance.ip-address}:${spring.application.name}:${random.value}
+    metadata-map:
+      exposto: 'true'
+      management.context-path: /actuator
+      management.port: ${server.port}
+      user:
+        name: admin
+        password: admin
+    prefer-ip-address: true
+    ip-address: ${eureka.instance.hostname}
+    non-secure-port: ${server.port}
+    secure-health-check-url: "http://${eureka.instance.ip-address}:${eureka.instance.metadata-map.management.port}/actuator/health"
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+feign:
+  client:
+    config:
+      default: # Configuracao default de timeout
+        connectTimeout: 10000
+        readTimeout: 300000
+        loggerLevel: basic
+      fsj-loja-api:
+        connectTimeout: 10000
+        readTimeout: 300000

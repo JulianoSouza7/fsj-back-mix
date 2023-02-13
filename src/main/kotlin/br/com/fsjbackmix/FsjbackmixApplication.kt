@@ -1,4 +1,4 @@
-package br.com.`fsj-backmix`
+package br.com.fsjbackmix
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

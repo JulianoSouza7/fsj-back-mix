@@ -1,4 +1,4 @@
-package br.com.`fsj-backmix`.controller
+package br.com.fsjbackmix.controller
 
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
